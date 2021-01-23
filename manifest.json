@@ -1,0 +1,28 @@
+{
+	"name": "Facebook Zucks",
+	"version": "0.1",
+	"description": "",
+	"manifest_version": 2,
+	"browser_action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+
+		}
+	},
+	"icons": {
+
+	},
+	"permissions": [
+
+	],
+	"content_scripts": [
+		{
+			"js": [
+				"content_script.js"
+			],
+			"matches": [
+				"https://facebook.com/*"
+			]
+		}
+	]
+}
