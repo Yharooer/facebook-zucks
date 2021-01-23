@@ -24,7 +24,6 @@ class FacebookZucksProgram {
     }
 
     onScroll() {
-        console.log('onScroll');
         this.parser.parseFeed();
         this.mangler.parseNewPosts();
     }

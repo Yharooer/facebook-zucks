@@ -8,12 +8,19 @@ class UvuMangler {
     }
 
     manglePost() {
-        this.post.header.title.innerHTML = owoify(this.post.header.title.innerHTML, 'uvu');
-        this.post.middle.text.forEach(e => e.innerHTML = owoify(e.innerHTML, 'uvu'));
-        console.log(this.post.footer);
-        this.post.footer.likes.innerHTML = owoify(this.post.footer.likes.innerHTML, 'uvu');
-        this.post.footer.comments.innerHTML = owoify(this.post.footer.comments.innerHTML, 'uvu');
-        this.post.footer.shares.innerHTML = owoify(this.post.footer.shares.innerHTML, 'uvu');
+        process = (e) => {
+            if (e) {
+                e.innerHTML = owoify(e.innerHTML, 'uvu');
+            }
+        };
+
+        [
+            this.post.header.title,
+            this.post.footer.likes,
+            this.post.footer.comments,
+            this.post.footer.shares,
+        ].forEach(process);
+        this.post.middle.text?.forEach(process);
     }
 
 }
