@@ -1,5 +1,6 @@
 import FeedParser from './FeedParser';
 import MangleHandler from './MangleHandler';
+import UITweaker from './UITweaker';
 
 class FacebookZucksProgram {
 
@@ -19,6 +20,7 @@ class FacebookZucksProgram {
                 });
             }
         });
+        new UITweaker().run();
     }
 
     onScroll() {

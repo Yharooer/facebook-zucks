@@ -1,5 +1,5 @@
 {
-	"name": "Facebook Zucks",
+	"name": "FacebookZucks",
 	"version": "0.1",
 	"description": "",
 	"manifest_version": 2,
@@ -17,13 +17,9 @@
 	],
 	"content_scripts": [
 		{
-			"js": [
-				"bin/main.js"
-			],
-			"matches": [
-				"https://facebook.com/*"
-			],
-			"run_at": "document_end"
+			"matches": ["*://*.facebook.com/*"],
+			"run_at": "document_idle",
+			"js": ["bin/main.js"]
 		}
 	]
 }

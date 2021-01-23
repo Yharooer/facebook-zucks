@@ -4,7 +4,7 @@ class MangleHandler {
 
     constructor (feed) {
         this.resetPoint = 0; // The point at which the mangling resets.
-        this.mangleValue = 0; // The 'score' for how mangled new posts should be.
+        this.mangleValue = feed.length; // The 'score' for how mangled new posts should be.
         this.feed = feed;
         this.parsedLength = 0;
 
@@ -28,9 +28,7 @@ class MangleHandler {
 
         const rand = Array.from(Array(this.allManglers.length).keys()).sort( () => .5-Math.random() ); // Generates indices of randomised manglers.
         for (let i=0; i<rand.length; i++) {
-            console.log('Mangling a post');
             const mangler = new this.allManglers[i](post);
-            console.log(mangler);
             thisMangle -= mangler.cost;
             if (thisMangle < 0) { break; }
             mangler.manglePost();

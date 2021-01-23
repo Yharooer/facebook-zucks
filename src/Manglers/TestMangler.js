@@ -6,7 +6,7 @@ class TestMangler {
     }
 
     manglePost() {
-        this.post.header.innerHTML = 'lmao';
+        this.post.header.title.innerHTML = 'lmao';
     }
 
 }
