@@ -1,4 +1,6 @@
 import TestMangler from './Manglers/TestMangler';
+import OwoMangler from './Manglers/OwoMangler';
+import UvuMangler from './Manglers/UvuMangler';
 
 class MangleHandler {
 
@@ -8,7 +10,7 @@ class MangleHandler {
         this.feed = feed;
         this.parsedLength = 0;
 
-        this.allManglers = [TestMangler]; // Add new manglers here.
+        this.allManglers = [UvuMangler]; // Add new manglers here.
     }
 
     computeMangleValue() {

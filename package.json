@@ -11,6 +11,7 @@
     "browserify": "^17.0.0",
     "gulp": "^4.0.2",
     "gulp-sourcemaps": "^3.0.0",
+    "owoify-js": "^1.0.7",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.1"
