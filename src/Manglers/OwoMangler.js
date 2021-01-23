@@ -8,13 +8,13 @@ class OwoMangler extends BaseMangler {
 
     constructor(post) {
         super(post);
-        this.cost = 2;
+        this.cost = 0.5;
     }
 
     manglePost(amount) {
         // Do header and footer.
-        const headFootType = (amount > 80) ? 'uvu' : (amount > 50) ? 'uwu' : 'owo';
-        const headFootAmt = (amount > 80) ? 80 : (amount > 50) ? 50 : 20;
+        const headFootType = (amount > 1.5) ? 'uvu' : (amount > 1.0) ? 'uwu' : 'owo';
+        const headFootAmt = (amount > 1.5) ? 1.5 : (amount > 1.0) ? 1.0 : 0.5;
 
         const process = (e,type) => {
             if (e) {
@@ -38,8 +38,8 @@ class OwoMangler extends BaseMangler {
         console.log(mediaText);
         let mediaAmt = 0;
         if (mediaText.length > 0) {
-            let mediaType = (amount-headFootAmt > 80) ? 'uvu' : (amount-headFootAmt > 50) ? 'uwu' : (amount-headFootAmt > 20) ? 'owo' : null;
-            mediaAmt = (amount-headFootAmt > 80) ? 80 : (amount-headFootAmt > 50) ? 50 : (amount-headFootAmt > 20) ? 20 : 0;
+            let mediaType = (amount-headFootAmt > 1.5) ? 'uvu' : (amount-headFootAmt > 1.0) ? 'uwu' : (amount-headFootAmt > 0.5) ? 'owo' : null;
+            mediaAmt = (amount-headFootAmt > 1.5) ? 1.5 : (amount-headFootAmt > 1.0) ? 1.0 : (amount-headFootAmt > 0.5) ? 0.5 : 0;
 
             if (mediaType != null) {
                 mediaText.forEach(e => process(e, mediaType));
@@ -47,8 +47,8 @@ class OwoMangler extends BaseMangler {
         }
         
         // Do body
-        const bodyType = (amount-headFootAmt > 80) ? 'uvu' : (amount-headFootAmt > 50) ? 'uwu' : (amount-headFootAmt > 20) ? 'owo' : null;
-        const bodyAmt = (amount-headFootAmt > 80) ? 80 : (amount-headFootAmt > 50) ? 50 : (amount-headFootAmt > 20) ? 20 : 0;
+        const bodyType = (amount-headFootAmt > 1.5) ? 'uvu' : (amount-headFootAmt > 1.0) ? 'uwu' : (amount-headFootAmt > 0.5) ? 'owo' : null;
+        const bodyAmt = (amount-headFootAmt > 1.5) ? 1.5 : (amount-headFootAmt > 1.0) ? 1.0 : (amount-headFootAmt > 0.5) ? 0.5 : 0;
 
         if (bodyType != null) {
             this.post.middle.text?.forEach(e => process(e, bodyType));
