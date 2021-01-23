@@ -4,9 +4,9 @@ import UITweaker from './UITweaker';
 
 class FacebookZucksProgram {
 
-    constructor() {
+    constructor(allowance, get_time) {
         this.parser = new FeedParser();
-        this.mangler = new MangleHandler(this.parser.feed);
+        this.mangler = new MangleHandler(this.parser.feed, allowance, get_time);
         this.ticking = false;
     }
 

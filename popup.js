@@ -30,7 +30,7 @@ function increment_time(value, cb) {
 }
 
 
-function submit_form(arg) {
+function submit_form() {
   const field = document.getElementById('time_field');
   if (is_numeric(field.value)) {
     const value = parseFloat(field.value);
