@@ -2,7 +2,7 @@ class BaseMangler {
 
     constructor(post) {
         this.post = post;
-        this.cost = 0;
+        this.cost = 1;
     }
 
     manglePost(amount) {

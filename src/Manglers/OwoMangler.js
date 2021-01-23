@@ -8,7 +8,7 @@ class OwoMangler extends BaseMangler {
 
     constructor(post) {
         super(post);
-        this.cost = 20;
+        this.cost = 2;
     }
 
     manglePost(amount) {

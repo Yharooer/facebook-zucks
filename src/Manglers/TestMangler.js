@@ -4,7 +4,7 @@ class TestMangler extends BaseMangler {
 
     constructor(post) {
         super(post);
-        this.cost = 10;
+        this.cost = 1;
     }
 
     manglePost() {

@@ -6,7 +6,7 @@ class FlipMangler extends BaseMangler {
 
     constructor(post) {
         super(post);
-        this.cost = 50;
+        this.cost = 1;
     }
 
     rotate(amount) {
