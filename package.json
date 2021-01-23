@@ -1,0 +1,26 @@
+{
+  "name": "facebook-zucks",
+  "version": "1.0.0",
+  "description": "",
+  "main": " ",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yharooer/facebook-zucks.git"
+  },
+  "author": "Bentley Carr / Jakub Priban",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yharooer/facebook-zucks/issues"
+  },
+  "homepage": "https://github.com/Yharooer/facebook-zucks#readme"
+}
