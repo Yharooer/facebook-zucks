@@ -1,17 +1,32 @@
 import BaseMangler from "./BaseMangler";
 
+const random_select = (array) => array[Math.floor(Math.random() * array.length)];
+
 class FlipMangler extends BaseMangler {
 
     constructor(post) {
         super(post);
-        this.cost = 15;
+        this.cost = 50;
     }
 
-    manglePost() {
+    rotate(amount) {
+        const direction = Math.random() > 0.5 ? 1 : -1;
+        const deg = direction * amount / 100;
+        return `rotate(${deg}deg)`;
+    }
+
+    scale(amount) {
+        const direction = Math.random() > 0.5 ? 1 : -1;
+        const sf = 1 + direction * amount / 100;
+        return `scale(${sf}, ${sf})`
+    }
+
+    manglePost(amount) {
+        const options = [this.rotate, this.scale];
+
         process = (e) => {
             if (e) {
-                console.log('rotating');
-                e.style.transform = "rotate(45deg)";
+                e.style.transform = random_select(options)(amount);
             }
         };
 
