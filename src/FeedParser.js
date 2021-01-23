@@ -3,17 +3,14 @@ import Post from './Post';
 class FeedParser {
 
     constructor() {
-
+        this.feed = [];
     }
 
     parseFeed() {
-        return this.parseWholeFeed();
-    }
-
-    parseWholeFeed() {
         const posts = Array.from(document.querySelectorAll('[role=feed]')[0].children).filter(e => e.hasAttribute('data-pagelet'));
-        console.log(posts);
-        return posts.map(p => new Post(p));
+        for (let i=this.feed.length; i<posts.length; i++) {
+            this.feed.push(new Post(posts[i]));
+        }
     }
 
 }

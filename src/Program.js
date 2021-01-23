@@ -1,37 +1,30 @@
-import FeedParser from './FeedParser'
-
+import FeedParser from './FeedParser';
+import MangleHandler from './MangleHandler';
 
 class FacebookZucksProgram {
 
     constructor() {
         this.parser = new FeedParser();
-        this.feed = [];
-        this.lowestScrollPosition = 0;
+        this.mangler = new MangleHandler(this.parser.feed);
+        this.ticking = false;
     }
 
     initialise() {
-        console.log('Initializing FacebookZucksProgram');
-        let ticking = false;        
-        document.addEventListener('scroll', (e) => {
-            if (this.lowestScrollPosition < window.scrollY) { // only run on new content
-                this.lowestScrollPosition = window.scrollY;
-                if (!ticking) { // this garbage is to throttle the rate at which onScroll is called
-                    window.requestAnimationFrame(() => {
-                        this.onScroll();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
+        console.log('Initializing FacebookZucksProgram');     
+        document.addEventListener('scroll', e => {
+            if (!this.ticking) { // this garbage is to throttle the rate at which onScroll is called
+                window.requestAnimationFrame(() => {
+                    this.onScroll();
+                    this.ticking = false;
+                });
             }
         });
     }
 
     onScroll() {
         console.log('onScroll');
-        const newFeed = this.parser.parseFeed();
-        if (newFeed.length > this.feed.length) {
-            this.feed = newFeed;
-        }
+        this.parser.parseFeed();
+        this.mangler.parseNewPosts();
     }
 
     start () {
