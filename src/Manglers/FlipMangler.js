@@ -11,22 +11,23 @@ class FlipMangler extends BaseMangler {
 
     rotate(amount) {
         const direction = Math.random() > 0.5 ? 1 : -1;
-        const deg = direction * amount / 100;
+        const deg = direction * amount / 48;
         return `rotate(${deg}deg)`;
     }
 
     scale(amount) {
         const direction = Math.random() > 0.5 ? 1 : -1;
-        const sf = 1 + direction * amount / 100;
+        const sf = 1 + direction * amount / 64;
         return `scale(${sf}, ${sf})`
     }
 
     manglePost(amount) {
         const options = [this.rotate, this.scale];
+        const actual_amount = this.cost + Math.random() * amount;
 
         process = (e) => {
             if (e) {
-                e.style.transform = random_select(options)(amount);
+                e.style.transform = random_select(options)(actual_amount);
             }
         };
 
@@ -35,7 +36,7 @@ class FlipMangler extends BaseMangler {
             this.post.middle.media,
         ].forEach(process);
         this.post.footer.buttons?.forEach(process);
-        return this.cost;
+        return actual_amount;
     }
 
 }
