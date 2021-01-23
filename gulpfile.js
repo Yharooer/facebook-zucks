@@ -17,7 +17,7 @@ gulp.task('default', () =>
     })
     .transform(babelify,
         {
-            presets: [require('@babel/preset-es2015')]
+            presets: [require('@babel/preset-env')]
         })
     .bundle()
     .pipe(source('main.js'))
