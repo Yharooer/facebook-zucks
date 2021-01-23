@@ -1,10 +1,8 @@
 const gulp = require('gulp');
-const babelify = require('babelify');
 const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const sourcemaps = require("gulp-sourcemaps");
-const rename = require('gulp-rename');
 
 gulp.task('default', () => 
     browserify({
