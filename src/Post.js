@@ -17,8 +17,8 @@ class Post {
     }
 
     parseHeader(root) {
-        let image = root.children[0]?.children[0]?.querySelector('a svg image');
-        let title = root.children[0]?.children[1]?.querySelector('h4 a span');
+        let image = root?.children[0]?.children[0]?.querySelector('a svg image');
+        let title = root?.children[0]?.children[1]?.querySelector('h4 a span');
         // TODO: this doesn't work for posts to groups: eg. Jakub Priban > JCSU Group
         // will only select 'Jakub Priban' and not 'JCSU Group'
         return { root, image, title };
