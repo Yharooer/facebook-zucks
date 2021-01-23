@@ -20,7 +20,12 @@ class FacebookZucksProgram {
                 });
             }
         });
-        new UITweaker().run();
+        const uiTweaker = new UITweaker();
+        uiTweaker.run();
+        setTimeout(() => uiTweaker.run(), 500);
+        setTimeout(() => uiTweaker.run(), 1000);
+        setTimeout(() => uiTweaker.run(), 2000);
+        setTimeout(() => uiTweaker.run(), 5000);
     }
 
     onScroll() {

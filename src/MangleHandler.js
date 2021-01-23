@@ -1,6 +1,5 @@
 import TestMangler from './Manglers/TestMangler';
 import OwoMangler from './Manglers/OwoMangler';
-import UvuMangler from './Manglers/UvuMangler';
 import FlipMangler from './Manglers/FlipMangler';
 
 class MangleHandler {
@@ -11,11 +10,12 @@ class MangleHandler {
         this.feed = feed;
         this.parsedLength = 0;
 
-        this.allManglers = [UvuMangler, FlipMangler]; // Add new manglers here.
+        this.allManglers = [OwoMangler, FlipMangler]; // Add new manglers here.
     }
 
     computeMangleValue() {
-        this.mangleValue = (this.feed.length - this.resetPoint) * 10;
+        this.mangleValue = (this.feed.length - this.resetPoint) * 5;
+        console.log(`Mangle value is ${this.mangleValue}.`);
     }
 
     parseNewPosts() {
