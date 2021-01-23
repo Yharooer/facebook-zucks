@@ -1,4 +1,4 @@
-import TestMangler from './Manglers/TestMangler';
+import LsdMangler from './Manglers/LsdMangler';
 import OwoMangler from './Manglers/OwoMangler';
 import FlipMangler from './Manglers/FlipMangler';
 
@@ -14,7 +14,7 @@ class MangleHandler {
         setInterval(() => get_time((time) => { // this is async, so won't be precise, but we don't care
             this.current_time = time;
         }), 3000);
-        this.allManglers = [OwoMangler, FlipMangler]; // Add new manglers here.
+        this.allManglers = [OwoMangler, FlipMangler, LsdMangler]; // Add new manglers here.
     }
 
     computeMangleValue() {
