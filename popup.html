@@ -7,7 +7,16 @@
 
 <body>
   <script src="popup.js"></script>
-  <button id='start_button'>Does nothing</button>
+  <h1>Zuck Sucks</h1>
+  <p>Thank you for choosing Zuck Sucks - the number one way to tackle your Facebook addiction.
+    Use this form to configure your daily allowance of uninterrupted Facebook time.
+  </p>
+  <form>
+    <label for="time">Time allowance (mins):</label><br>
+    <input type="text" id="time_field" name="time">
+    <label id="error_message" style='opacity:0;color:red;'>Invalid input</label>
+  </form>
+  <button id='submit_button'>Submit</button>
 </body>
 
 </html>
