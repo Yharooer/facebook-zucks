@@ -25,7 +25,25 @@ class Post {
     }
 
     parseMiddle(root) {
-
+        let text_content = root?.children[0]?.querySelector('div div span[dir="auto"]')?.children;
+        let text = null;
+        if (text_content) {
+            text = []; // beware - can have null elements!
+            Array.from(text_content).forEach(
+                d => d?.querySelectorAll('div[dir="auto"]').forEach(
+                    x => x ? text.push(x) : null
+                )
+            );
+        }
+        let media = null;
+        if (text && root.children.length > 1) {
+            // there is text and media in the post
+            media = root?.children[1];
+        } else if (!text) {
+            // there is no text, so the first child is the media
+            media = root?.children[0];
+        }
+        return { root, text, media };
     }
 
     parseFooter(root) {
@@ -37,7 +55,8 @@ class Post {
         const buttons = this.getNestedChildren(root, 4)?.children[1]?.children[0]?.children;
         return {
             likes, comments, shares,
-            buttons: buttons ? Array.from(buttons) : null };
+            buttons: buttons ? Array.from(buttons) : null
+        };
     }
 }
 
