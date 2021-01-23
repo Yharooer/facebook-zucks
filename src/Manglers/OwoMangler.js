@@ -1,15 +1,19 @@
+import BaseMangler from './BaseMangler';
+
+
 const owoify = require('owoify-js').default;
 
-class OwoMangler {
+class OwoMangler extends BaseMangler {
 
     constructor(post) {
-        this.post = post;
+        super(post);
         this.cost = 10;
     }
 
     manglePost() {
         this.post.header.title.innerHTML = owoify(this.post.header.title.innerHTML);
         // Content;
+        return this.cost;
     }
 
 }

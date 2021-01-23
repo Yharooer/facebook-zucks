@@ -1,13 +1,15 @@
+import BaseMangler from './BaseMangler';
+
 const owoify = require('owoify-js').default;
 
-class UvuMangler {
+class UvuMangler extends BaseMangler {
 
     constructor(post) {
-        this.post = post;
+        super(post);
         this.cost = 40;
     }
 
-    manglePost() {
+    manglePost(amount) {
         process = (e) => {
             if (e) {
                 e.innerHTML = owoify(e.innerHTML, 'uvu');
@@ -21,6 +23,7 @@ class UvuMangler {
             this.post.footer.shares,
         ].forEach(process);
         this.post.middle.text?.forEach(process);
+        return this.cost;
     }
 
 }

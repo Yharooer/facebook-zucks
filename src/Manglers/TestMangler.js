@@ -1,7 +1,9 @@
-class TestMangler {
+import BaseMangler from "./BaseMangler";
+
+class TestMangler extends BaseMangler {
 
     constructor(post) {
-        this.post = post;
+        super(post);
         this.cost = 10;
     }
 
@@ -9,6 +11,7 @@ class TestMangler {
         if (this.post.header.title) {
             this.post.header.title.innerHTML = 'lmao';
         }
+        return this.cost;
     }
 
 }

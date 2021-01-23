@@ -1,6 +1,7 @@
 import TestMangler from './Manglers/TestMangler';
 import OwoMangler from './Manglers/OwoMangler';
 import UvuMangler from './Manglers/UvuMangler';
+import FlipMangler from './Manglers/FlipMangler';
 
 class MangleHandler {
 
@@ -10,7 +11,7 @@ class MangleHandler {
         this.feed = feed;
         this.parsedLength = 0;
 
-        this.allManglers = [UvuMangler]; // Add new manglers here.
+        this.allManglers = [UvuMangler, FlipMangler]; // Add new manglers here.
     }
 
     computeMangleValue() {
@@ -31,9 +32,8 @@ class MangleHandler {
         const rand = Array.from(Array(this.allManglers.length).keys()).sort( () => .5-Math.random() ); // Generates indices of randomised manglers.
         for (let i=0; i<rand.length; i++) {
             const mangler = new this.allManglers[i](post);
-            thisMangle -= mangler.cost;
-            if (thisMangle < 0) { break; }
-            mangler.manglePost();
+            const actual_cost = mangler.manglePost(thisMangle);
+            thisMangle -= actual_cost;
         }
     }
 
