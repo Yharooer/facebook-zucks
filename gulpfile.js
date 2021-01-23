@@ -1,8 +1,10 @@
 const gulp = require('gulp');
+const babelify = require('babelify');
 const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const sourcemaps = require("gulp-sourcemaps");
+const watchify = require('watchify');
 
 gulp.task('default', () => 
     browserify({
@@ -13,6 +15,10 @@ gulp.task('default', () =>
         cache: {},
         packageCache: {}
     })
+    .transform(babelify,
+        {
+            presets: [require('@babel/preset-es2015')]
+        })
     .bundle()
     .pipe(source('main.js'))
     .pipe(buffer())
