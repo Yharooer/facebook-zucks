@@ -31,13 +31,10 @@ class MangleHandler {
     }
 
     manglePost(post) {
-        let thisMangle = this.mangleValue;
-
         const rand = Array.from(Array(this.allManglers.length).keys()).sort( () => .5-Math.random() ); // Generates indices of randomised manglers.
         for (let i=0; i<rand.length; i++) {
             const mangler = new this.allManglers[i](post);
-            const actual_cost = mangler.doMangle(thisMangle);
-            thisMangle -= actual_cost;
+            const actual_cost = mangler.doMangle(this.mangleValue);
         }
     }
 
