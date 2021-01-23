@@ -13,7 +13,7 @@
 
 	},
 	"permissions": [
-
+		"activeTab"
 	],
 	"content_scripts": [
 		{
@@ -22,7 +22,8 @@
 			],
 			"matches": [
 				"https://facebook.com/*"
-			]
+			],
+			"run_at": "document_end"
 		}
 	]
 }
