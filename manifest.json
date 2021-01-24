@@ -1,6 +1,6 @@
 {
 	"name": "ZuckSucks",
-	"version": "1.0",
+	"version": "1.0.2",
 	"description": "Making the Facebook experience unbearable!",
 	"manifest_version": 2,
 	"browser_action": {
