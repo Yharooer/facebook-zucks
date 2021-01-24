@@ -1,16 +1,22 @@
 {
-	"name": "FacebookZucks",
-	"version": "0.1",
-	"description": "",
+	"name": "ZuckSucks",
+	"version": "1.0",
+	"description": "Making the Facebook experience unbearable.",
 	"manifest_version": 2,
 	"browser_action": {
 		"default_popup": "popup.html",
 		"default_icon": {
-
+			"16": "icon/icon-16.png",
+			"32": "icon/icon-32.png",
+			"48": "icon/icon-48.png",
+			"128": "icon/icon-128.png"
 		}
 	},
 	"icons": {
-
+		"16": "icon/icon-16.png",
+		"32": "icon/icon-32.png",
+		"48": "icon/icon-48.png",
+		"128": "icon/icon-128.png"
 	},
 	"permissions": [
 		"activeTab",

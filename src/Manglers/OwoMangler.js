@@ -12,6 +12,11 @@ class OwoMangler extends BaseMangler {
     }
 
     manglePost(amount) {
+        amount = amount * (Math.random() + 0.5);
+        amount = amount * 2;
+
+        if (amount < this.cost) return;
+
         // Do header and footer.
         const headFootType = (amount > 1.5) ? 'uvu' : (amount > 1.0) ? 'uwu' : 'owo';
         const headFootAmt = (amount > 1.5) ? 1.5 : (amount > 1.0) ? 1.0 : 0.5;

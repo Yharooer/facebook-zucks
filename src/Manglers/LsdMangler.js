@@ -7,6 +7,8 @@ class LsdMangler extends BaseMangler {
     }
 
     manglePost(amount) {
+        amount = amount * (Math.random() + 0.5);
+
         if (amount < this.cost) return;
 
         const styleElement = document.createElement('style');
@@ -54,7 +56,7 @@ class LsdMangler extends BaseMangler {
             top: 0;
             mix-blend-mode: difference;
             transition: opacity .6s ease;
-            opacity: 0.7s;
+            opacity: min(var(--i), 1);
             animation: lsd-anim 20s infinite alternate ease;
             animation-delay: 0s;
             pointer-events: none;
@@ -69,7 +71,7 @@ class LsdMangler extends BaseMangler {
             top: 0;
             mix-blend-mode: difference;
             transition: opacity .6s ease;
-            opacity: 0.7s;
+            opacity: min(calc(var(--i) * 0.5), 1);
             animation: lsd-anim 25s infinite alternate ease;
             animation-delay: 0s;
             pointer-events: none;
@@ -84,7 +86,7 @@ class LsdMangler extends BaseMangler {
             top: 0;
             mix-blend-mode: difference;
             transition: opacity .6s ease;
-            opacity: 0.7s;
+            opacity: min(calc(var(--i) * 0.3), 1);
             animation: lsd-anim 30s infinite alternate ease;
             animation-delay: 0s;
             pointer-events: none;
@@ -92,22 +94,31 @@ class LsdMangler extends BaseMangler {
         `;
         document.head.appendChild(styleElement);
 
+        const lsdAmount = Math.max(0, amount - 1);
+
         const lsdElement = document.createElement('div');
         lsdElement.classList.add('lsd');
         lsdElement.innerHTML = this.post.root.innerHTML;
+        lsdElement.style.setProperty('--i', lsdAmount);
         this.post.root.appendChild(lsdElement);
 
-        const lsdElement2 = document.createElement('div');
-        lsdElement2.classList.add('lsd2');
-        lsdElement2.innerHTML = this.post.root.innerHTML;
-        this.post.root.appendChild(lsdElement2);
+        if (amount > 3) {
+            const lsdElement2 = document.createElement('div');
+            lsdElement2.classList.add('lsd2');
+            lsdElement2.innerHTML = this.post.root.innerHTML;
+            lsdElement2.style.setProperty('--i', lsdAmount);
+            this.post.root.appendChild(lsdElement2);
+        }
 
-        const lsdElement3 = document.createElement('div');
-        lsdElement3.classList.add('lsd3');
-        lsdElement3.innerHTML = this.post.root.innerHTML;
-        this.post.root.appendChild(lsdElement3);
+        if (amount > 5) {
+            const lsdElement3 = document.createElement('div');
+            lsdElement3.classList.add('lsd3');
+            lsdElement3.innerHTML = this.post.root.innerHTML;
+            lsdElement3.style.setProperty('--i', lsdAmount);
+            this.post.root.appendChild(lsdElement3);
+        }
 
-        return this.cost;
+        return Math.min(amount, 5);
     }
 }
 

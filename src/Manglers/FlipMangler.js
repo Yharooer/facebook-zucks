@@ -16,6 +16,7 @@ class FlipMangler extends BaseMangler {
     }
 
     scale(amount) {
+        amount = amount * 2;
         const direction = Math.random() > 0.5 ? 1 : -1;
         const sf = 1 + direction * amount / 10;
         return `scale(${sf}, ${sf})`
@@ -23,7 +24,9 @@ class FlipMangler extends BaseMangler {
 
     manglePost(amount) {
         const options = [this.rotate, this.scale];
-        const actual_amount = Math.random() * (amount - this.cost);
+        let actual_amount = Math.random() * (amount - this.cost);
+        actual_amount = 20*actual_amount**2;
+
         process = (e) => {
             if (e) {
                 e.style.transform = random_select(options)(actual_amount);

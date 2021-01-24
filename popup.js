@@ -40,6 +40,9 @@ function submit_form() {
   } else {
     document.getElementById('error_message').style.opacity = 1;
   }
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.update(tabs[0].id, {url: tabs[0].url});
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function () {

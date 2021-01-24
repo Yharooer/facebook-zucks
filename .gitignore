@@ -117,3 +117,6 @@ dist
 
 # Build Files
 bin
+
+# Release
+release.zip
