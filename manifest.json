@@ -1,7 +1,7 @@
 {
 	"name": "ZuckSucks",
 	"version": "1.0",
-	"description": "Making the Facebook experience unbearable.",
+	"description": "Making the Facebook experience unbearable!",
 	"manifest_version": 2,
 	"browser_action": {
 		"default_popup": "popup.html",
